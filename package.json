@@ -4,7 +4,7 @@
   "description": "Hi my name is mote. I am from kathmandu.",
   "main": "index.js",
   "scripts": {
-    "start" : "node server.js",
+    "start": "node server.js",
     "dev": "nodemon server.js"
   },
   "keywords": [],
@@ -12,5 +12,8 @@
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "uuid": "^9.0.1"
   }
 }
