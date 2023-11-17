@@ -8,6 +8,28 @@ function writeDataToFile(filename, content) {
   });
 }
 
+function getPostData(req) {
+  return new Promise((resolve, reject) => {
+    try {
+      let body = "";
+      req.on("data", (chunk) => {
+        body += chunk.toString();
+      });
+
+      req.on("end", () => {
+        if (body) {
+          resolve(body);
+        } else {
+          reject(new Error("No body data"));
+        }
+      });
+    } catch (err) {
+      reject(err);
+    }
+  });
+}
+
 module.exports = {
   writeDataToFile,
+  getPostData,
 };

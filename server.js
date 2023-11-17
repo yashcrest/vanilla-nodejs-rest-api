@@ -3,8 +3,10 @@ const {
   getProducts,
   getProduct,
   createProduct,
+  updateProduct,
 } = require("./controllers/productController");
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
+
 //creating an instance of http
 const server = http.createServer((req, res) => {
   //condtion to check what endpoint
@@ -18,6 +20,9 @@ const server = http.createServer((req, res) => {
     getProduct(req, res, id);
   } else if (req.url === "/api/products" && req.method === "POST") {
     createProduct(req, res);
+  } else if (req.url.match(/\/api\/products\/\w+/) && req.method === "PUT") {
+    const id = req.url.split("/")[3];
+    updateProduct(req, res, id);
   } else {
     res.writeHead(404, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ message: "Route not found" }));
