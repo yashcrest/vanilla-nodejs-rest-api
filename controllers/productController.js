@@ -35,6 +35,7 @@ async function getProduct(req, res, id) {
 // @route POST /api/products
 async function createProduct(req, res) {
   try {
+    //getting the body data from req obj
     const body = await getPostData(req);
 
     if (!body) {
@@ -46,7 +47,6 @@ async function createProduct(req, res) {
       description,
       price,
     };
-
     const newProduct = await Product.create(product);
     res.writeHead(201, { "Content-type": "application/json" });
     return res.end(JSON.stringify(newProduct));
