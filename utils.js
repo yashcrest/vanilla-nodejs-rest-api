@@ -12,6 +12,7 @@ function getPostData(req) {
   return new Promise((resolve, reject) => {
     try {
       let body = "";
+      //don't try memorizing this src as this is coming straight from node docs.
       req.on("data", (chunk) => {
         body += chunk.toString();
       });
