@@ -6,7 +6,7 @@ It will help in solidifying the concept of core node modules.
 
 
 # MVC
-This projects is also using the concept of MVC (model, view, controller). Where the app is seperated in threee components. 
+This projects is also using the concept of MVC (model, view, controller). Where the app is seperated in three components. 
 
 First component - Model:
 This represents the data and the business logic of the app.
